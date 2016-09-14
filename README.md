@@ -38,6 +38,7 @@ circle.restart()
 ```
 
 5 Configuration
+
 | field | note |
 |----|:------:|
 |element| dom element |
