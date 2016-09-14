@@ -1,7 +1,11 @@
 /**
- * [circle progress]
- * @return object
- */
+ * Circle Progress
+ *
+ * Author: Thomas Chan (http://chenjunhao.cn)
+ * Homepage: https://github.com/ThomasChan/CircleProgress
+ * Issue Tracker: https://github.com/ThomasChan/CircleProgress/issues
+ * License: MIT
+*/
 (function() {
 
     var BACKGROUND_LINE_WIDTH = 2.0
