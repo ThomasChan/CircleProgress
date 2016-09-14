@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+	<meta charset="UTF-8">
+	<title>Circle Progress Demo</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=11">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<style>
+		body {
+			text-align: center
+		}
+		.grid {
+			display: inline-block;
+			width: 200px;
+			height: 200px;
+			margin: 50px;
+		}
+		#b {
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div class="grid">
+		<canvas id="a" width='200' height='200'></canvas>
+		<input id="a_slide" type="range" min='0' max='100'>
+		<button id="a_restart">restart</button>
+	</div>
+	<div class="grid">
+		<div id="b"></div>
+		<input id="b_slide" type="range" min='0' max='100'>
+		<button id="b_restart">restart</button>
+	</div>
+	<script src="circleProgress.min.js"></script>
+	<script>
+		var a = new CircleProgress({
+			element: document.getElementById('a'),
+			current: 0.23
+		})
+		document.getElementById('a_slide').addEventListener('input', function(e) {
+			a.draw(e.target.value / 100)
+		})
+		document.getElementById('a_restart').addEventListener('click', function(e) {
+			a.restart()
+		})
+		var b = new CircleProgress({
+			element: document.getElementById('b'),
+			current: 0.89
+		})
+		document.getElementById('b_slide').addEventListener('input', function(e) {
+			b.draw(e.target.value / 100)
+		})
+		document.getElementById('b_restart').addEventListener('click', function(e) {
+			b.restart()
+		})
+	</script>
+</body>
+</html>
+	
