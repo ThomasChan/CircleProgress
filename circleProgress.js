@@ -44,9 +44,9 @@
         this.backgroundLineWidth = config.backgroundLineWidth || BACKGROUND_LINE_WIDTH
         this.circleLineWidth = config.circleLineWidth || CIRCLE_LINE_WIDTH
         this.radius = config.radius || (this.centerCoordinate - this.backgroundLineWidth - PROGRESS_END_RADIUS) // 半径
-        this.startAngle = config.startAngle || Math.PI/2
+        this.startAngle = config.startAngle || Math.PI / 2
         this.endAngle = config.endAngle || 360
-        this.current = config.current || 0
+        this.current = config.current > 1 ? 1 : config.current || 0
         this.progressEndRadius = config.progressEndRadius || PROGRESS_END_RADIUS
         this.progressEndWidth = config.progressEndWidth || PROGRESS_END_WIDTH
         this.progressEndHeight = config.progressEndHeight || PROGRESS_END_HEIGHT
@@ -63,7 +63,7 @@
 
     CircleProgress.prototype.draw = function(current) {
         if (Number(current) >= 0) {
-            this.current = current
+            this.current = current > 1 ? 1 : current
         }
         var _this = this
         var _draw = function() {
