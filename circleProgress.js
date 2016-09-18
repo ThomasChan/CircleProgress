@@ -65,9 +65,14 @@
         return this
     }
 
+    CircleProgress.prototype.drawId = undefined
     CircleProgress.prototype.draw = function(current) {
         if (Number(current) >= 0) {
             this.current = current > 1 ? 1 : current
+        }
+        if (this._shadow_current < Math.floor(this.current * 1000 / 10)) {
+            window.cancelAnimationFrame(this.drawId)
+            this.drawId = undefined
         }
         var _this = this
         var _draw = function() {
@@ -75,11 +80,13 @@
                 _this._shadow_current = 0
                 _this.ctx.clearRect(0, 0, _this.width, _this.height)
                 _this.drawBackground().drawCircle().drawText()
-                window.cancelAnimationFrame(_draw)
+                window.cancelAnimationFrame(_this.drawId)
+                _this.drawId = undefined
                 return false;
             }
             if (_this._shadow_current == Math.floor(_this.current * 1000 / 10)) {
-                window.cancelAnimationFrame(_draw)
+                window.cancelAnimationFrame(_this.drawId)
+                _this.drawId = undefined
                 return false;
             } else if (_this._shadow_current > Math.floor(_this.current * 1000 / 10)) {
                 _this._shadow_current -= 1
@@ -88,7 +95,7 @@
             }
             _this.ctx.clearRect(0, 0, _this.width, _this.height);
             _this.drawBackground().drawCircle().drawText()
-            window.requestAnimationFrame(_draw)
+            _this.drawId = window.requestAnimationFrame(_draw)
         }
         _draw()
     }
