@@ -32,7 +32,7 @@
         if (!config.element) {
             throw new Error('Error: CircleProgress must have dom element')
         }
-        if (config.element.tagName !== 'CANVAS') {
+        if (config.element.tagName.toLowerCase() !== 'canvas') {
             var _ele = document.createElement('canvas')
             _ele.id = '_ele_cirle_progress_' + Math.ceil(Math.random() * 1000)
             _ele.width = config.element.clientWidth
