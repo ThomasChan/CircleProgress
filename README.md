@@ -1,7 +1,7 @@
 
 # Circle Progress With Canvas
 
-Check the [Demo](http://chenjunhao.cn/circleProgress/)
+Check the [Demo](http://chenjunhao.cn/projects/circleProgress/)
 
 ## Usage
 
